@@ -1,6 +1,6 @@
 # Tree Care
 
-This project started as my personal family tree making application. Along the way, it turned into a minimalistic universal tree visualizer, supporting rich nodes with multiple multi-line fields.
+This project started as my personal family tree making application. Along the way, it turned into a minimalistic universal tree visualizer, supporting rich nodes with multi-line key-value pairs.
 
 ## use instructions
 
