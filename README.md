@@ -13,7 +13,7 @@ Data is entered (or copy-pasted) in a text editor as an S-Expression of the foll
         | (LEAF (<key> <value>+)+)
 ```
 
-Comments are contained in parenthesis that begin with the atom `**`.
+Comments have no meaning to the system, and can be used to annotate the code. They are contained in parenthesis that begin with the atom `**`.
 
 Button in the top right corner is used to switch between data editing and tree browsing modes. Tree browsing mode is available only when the tree data does not contain errors. Possible errors are displayed live in the bottom left corner, while the cursor reference position for finding errors is shown in the bottom right corner of the editor.
 
