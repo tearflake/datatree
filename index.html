@@ -34,7 +34,7 @@
 <script src="tree.js"></script>
 <script src="parser.js"></script>
 
-<div id="edit" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+<div id="edit" style="visibility: hidden; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
     <div id="input" class="container" style="padding: 0; border: 0; margin: 0; position: absolute; top: 0em; left: 0; right: 0; bottom: 0.75em;">
     </div>
     <script>
@@ -85,7 +85,7 @@
     </script>
 </div>
 
-<div id="treec" style="visibility: hidden;">
+<div id="treec" style="">
     <div id="tree" style="overflow: auto; padding: 0; border: 0; margin: 0; position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: row; justify-content: center;">
         <div style="font-size: 0.75em;">
             <h1 id="title" align="center"></h1>
@@ -106,8 +106,32 @@
 
 <script>
 let parsed = null
+let loza
 
-let loza = `
+async function getParams() {
+    const params = new URLSearchParams(document.location.search);
+    const url = params.get("url");
+
+    if (url) {
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+
+            loza = await response.text();
+        } catch (error) {
+            //console.error(error.message);
+            loza = getDefault();
+        }
+    }
+    else {
+        loza = getDefault()
+    }
+}
+
+function getDefault() {
+return `
 (DATA
     (TITLE 'King Charles III<br>(lineage)')
     (TREE
@@ -148,6 +172,7 @@ let loza = `
                             (LEAF
                                 (daughter 'Lilibet Diana Mountbatten-Windsor' 'Born Jun 4, 2021, Santa Barbara')))))))))
 `;
+}
 
 function compile(program) {
     let removeComments = function (expr) {
@@ -278,19 +303,22 @@ document.getElementById("input").addEventListener('keyup', () => {
     compile(input1.getValue());
 });
 
-compile(loza);
-
 function setTree(title, content) {
         document.getElementById("title").innerHTML = title
         document.getElementById("treeContent").textContent = "\n" + Tree.getTree(content) + "\n";
 }
 
-setTimeout(function() {
+async function setLoza() {
+    await getParams();
+    compile(loza);
+    
     input1.setValue(loza);
     input1.setSelectionStart (0);
     input1.setSelectionEnd (0);
     input1.setFocus();
-}, 0);
+}
+
+setTimeout(setLoza, 0);
 
 </script>
 
