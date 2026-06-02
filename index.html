@@ -317,7 +317,8 @@ document.getElementById("input").addEventListener('keyup', () => {
 });
 
 function setTree(title, content) {
-    document.getElementById("title").textContent = title.replaceAll("<br>", " ");
+    document.getElementById("title").textContent = title;
+    document.getElementById("title").innerHTML = document.getElementById("title").textContent.replaceAll("&lt;br&gt;", "<br>");
     document.getElementById("treeContent").textContent = "\n" + Tree.getTree(content) + "\n";
 }
 
