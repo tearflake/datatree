@@ -4,7 +4,7 @@ DataTree is a parser-driven system that converts a text data into visual trees. 
 
 ## use instructions
 
-Data is entered (or copy-pasted) in a text editor as an S-Expression of the following format:
+Data is entered (or copy-pasted) in embedded text editor as an S-Expression of the following format:
 
 ```
 <start> := (DATA (TITLE <value>) <tree>)
