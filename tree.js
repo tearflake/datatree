@@ -75,7 +75,7 @@ var Tree = (
         // 3. Funkcija za crtanje boxa
         // ------------------------------------------
         function drawBox(lines, firstIndent, restIndent, firstBox, hasChildren) {
-          const width = 47;//Math.max(...lines.map(l => l.length));
+          const width = 50;//Math.max(...lines.map(l => l.length));
           let top
           if (firstBox) {
               top = firstIndent + "┌" + "─".repeat(width + 2) + "┐";
