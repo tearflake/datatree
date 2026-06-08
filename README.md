@@ -4,7 +4,7 @@ DataTree is a parser-driven system that converts a text data into visual trees. 
 
 ## use instructions
 
-Data is entered (or copy-pasted) in embedded text editor as an S-Expression of the following format:
+Data is entered in embedded text editor as an S-Expression of the following format:
 
 ```
 <start> := (DATA (TITLE <value>) <tree>)
@@ -15,7 +15,7 @@ Data is entered (or copy-pasted) in embedded text editor as an S-Expression of t
 
 Comments have no meaning to the system, and can be used to annotate the code or temporary disable parts of code. They are indicated by parenthesis that begin with the atom `**`.
 
-Button in the top right corner is used to switch between data editing and tree browsing modes. Tree browsing mode is available only when the tree data does not contain errors. Possible errors are displayed live in the bottom left corner, while the cursor reference position for finding errors is shown in the bottom right corner of the editor.
+Button at the top right corner is used to switch between data editing and tree browsing modes. Tree browsing mode is available only when the tree data does not contain errors. Possible errors are displayed live at the bottom left corner, while the cursor reference position for finding errors is shown at the bottom right corner of the editor. Open/save file dialogs may require modern browser support, otherwise the user is expected to copy data form and paste data in the application. Open/save buttons are automatically visible when these operations are supported by the browser.
 
 Online working version with a live example is [here](https://tearflake.github.io/datatree).
 
